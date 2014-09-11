@@ -17,5 +17,17 @@ describe('whereCanIGo()', function() {
     }
     var result = whereCanIGo(champagneRoom);
     expect(result).to.eql(['east', 'west']);
+
+    it('tells us how many doors are available', function() {
+      var chamberOfSecrets = {
+      name: 'C',
+      north: null,
+      east: null,
+      south: null,
+      west: 'B'
+    }
+    var result = whereCanIGo(chamberOfSecrets);
+    expect(result).to.eql([result.length]);
+    });
   });
 });
