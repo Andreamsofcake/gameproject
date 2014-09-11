@@ -1,14 +1,13 @@
 /**
-Find which option are available for the current room.
+*Find which option are available for the current room.
+*
+*@{input} room
+*@{function} if direction is not null then push to new array
+*@{output} which directions are not null 
+* 
+**/
 
-@{input} room
-@{output} which directions are not null 
- if direction = null = true then  no print
- otherwise
- print direction
- */
-
-module.exports.whereCanIGo = function (room) {
+var whereCanIGo = function (room) {
   var newArray = [];
 
   if (room.east) { 
@@ -23,7 +22,18 @@ module.exports.whereCanIGo = function (room) {
   if (room.west) {
     newArray.push('west')
   }
-
-
   return newArray;
+
+};
+
+var howManyDoorsAreAvailable = function (room) {
+  var directions = whereCanIGo(room);
+
+  return directions.length; 
+
+}
+
+module.exports = {
+  whereCanIGo: whereCanIGo,
+  howManyDoorsAreAvailable: howManyDoorsAreAvailable
 };
