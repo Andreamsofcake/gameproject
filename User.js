@@ -1,11 +1,38 @@
 /**
 *Find which option are available for the current room.
 *
-*@{input} room
-*@{function} if direction is not null then push to new array
-*@{output} which directions are not null 
-* 
+*@param {input} array of "rooms"
+*
+*@param {function} 'whereDoesTheGameStart' if the room has an 
+'entrance', this is the 'entrance'.
+*@returns {string} entrance
+*
+*@param {function} 'whereCanIGo' if direction is not null 
+* then push to new array which is 'directions available'
+*@returns {array} directions available
+*
+*@param {function} 'howManyDoorsAreAvailable' how many directions
+* are available from 'directions available'.
+*@returns {number} number of doors
+*
+*@param {function} 'whereDoesThatDirectionGo' from direction select, 
+what is the 'new room' 
+*@returns {string} new room
+*
+*@param {function} 'whereDoesTheGameEnd' if the room has a treasure, 
+* then this room is where "a winner is you"
+*@returns {string} treasure room 
+*
 **/
+
+var whereDoesTheGameStart = function(rooms) {
+  if (rooms) {
+    entrance.name
+  }
+  // for each array item check for entrance
+  //   what is the name for the room where entrance is true
+  return;
+};
 
 var whereCanIGo = function (room) {
   var newArray = [];
@@ -38,8 +65,10 @@ var whereDoesThatDirectionGo = function (room, direction)  {
   return newRoom;
 };
 
+
 module.exports = {
   whereCanIGo: whereCanIGo,
   howManyDoorsAreAvailable: howManyDoorsAreAvailable,
-  whereDoesThatDirectionGo: whereDoesThatDirectionGo
+  whereDoesThatDirectionGo: whereDoesThatDirectionGo,
+  whereDoesTheGameStart: whereDoesTheGameStart
 };

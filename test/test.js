@@ -5,6 +5,7 @@ var functions = require('../User');
 var whereCanIGo = functions.whereCanIGo;
 var howManyDoorsAreAvailable = functions.howManyDoorsAreAvailable;
 var whereDoesThatDirectionGo = functions.whereDoesThatDirectionGo;
+var whereDoesTheGameStart = functions.whereDoesTheGameStart;
 
 
 describe('whereCanIGo()', function() {
@@ -43,15 +44,25 @@ describe('whereCanIGo()', function() {
     expect (result).to.eql('Champagne Room');
   });
   it('where does the game start?', function () {
-    var startOfGame = {
+    var roomA = {
       name: 'B',
       north: 'E',
       east: 'C',
       west: 'A',
-      south: null
+      south: null,
+      entrance: 'south'
     };
-    var result = whereDoesTheGameStart(startOfGame, 'B');
-    expect (result).to.eql('Champagne Room');
+    var roomB = { 
+      name: 'The Torturer Chamber',
+      north: 'Champagne Room',
+      east: null,
+      west: null,
+      south: 'Chamber Of Secrets',
+      treasure: true
+    };
+    var rooms = [roomA,roomB];
+    var result = whereDoesTheGameStart(rooms);
+    expect (result).to.eql('B');
   });
 
 });
